@@ -29,8 +29,7 @@ axios.get(`https://lambda-times-api.herokuapp.com/articles`)
     .then(stuff=>{
     stuff.data.articles.javascript.forEach(element => {
         cardsContainer.appendChild(createArticle(element));
-         })
-   
+    })
     stuff.data.articles.bootstrap.forEach(element => {
         cardsContainer.appendChild(createArticle(element));
     })
@@ -61,6 +60,7 @@ axios.get(`https://lambda-times-api.herokuapp.com/articles`)
 
     const headLine = document.createElement('div');
     headLine.classList.add('headline')
+    headLine.textContent=headline
     
     const authorHolder = document.createElement('div');
     authorHolder.classList.add('author')
@@ -75,7 +75,7 @@ axios.get(`https://lambda-times-api.herokuapp.com/articles`)
     const author = document.createElement('span')
     author.textContent =`By ${authorName}`
 
-    card.append(headline)
+    card.append(headLine)
     card.append(authorHolder)
     authorHolder.append(imgContainer)
     imgContainer.append(authorPic)
